@@ -5,7 +5,7 @@ import argparse
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--portname", help="Port name for example /dev/ttyUSB0", default="/dev/ttyUSB0"
+        "--portname", help="Port name for example /dev/ttyUSB0", default="COM14"
     )
     parser.add_argument(
         "--slaveaddress", help="Slave address 1-247", default=1, type=int
@@ -22,7 +22,8 @@ def main():
     print(f"Load current: {controller.get_load_current()}A")
     print(f"Load power: {controller.get_load_power()}W")
     print(f"Battery voltage: {controller.get_battery_voltage()}V")
-    print(f"Battery current: {controller.get_battery_current()}A")
+    print(f"Battery current L: {controller.get_battery_current_l()}A")
+    print(f"Battery current H: {controller.get_battery_current_h()}A")
     print(f"Battery power: {controller.get_battery_power()}W")
     print(f"Battery state of charge: {controller.get_battery_state_of_charge()}%")
     print(f"Battery temperature: {controller.get_battery_temperature()}°C")
